@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://comkng3yiatuj"]
 
-[ext_resource type="Texture2D" uid="uid://c5hcyfa5xcc56" path="res://Assets/Menu.png" id="1_dvvdh"]
 [ext_resource type="Script" uid="uid://bp0uqk3uns48f" path="res://Scrips/menu.gd" id="1_mcucm"]
+[ext_resource type="Texture2D" uid="uid://c56ri36c7kc0e" path="res://Assets/Menu (1).png" id="2_ldxh0"]
 [ext_resource type="AudioStream" uid="uid://cfkecnx7gywtk" path="res://Music/The_Architect_s_Proof.mp3" id="3_ldxh0"]
 
 [node name="MenuControl" type="Control" unique_id=198406794]
@@ -23,7 +23,7 @@ offset_right = -2.0
 offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_dvvdh")
+texture = ExtResource("2_ldxh0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2126381347]
 layout_mode = 1
