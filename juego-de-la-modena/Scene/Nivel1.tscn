@@ -37,11 +37,12 @@ offset_bottom = 92.0
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -167.5
-offset_right = 167.5
-offset_bottom = 160.0
+offset_left = -258.75
+offset_right = 258.75
+offset_bottom = 240.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
 
 [node name="ButtonConfirmarmar" type="Button" parent="UI" unique_id=2005700586]
 offset_left = 496.0
@@ -50,6 +51,37 @@ offset_right = 650.0
 offset_bottom = 380.0
 text = "RETIRAR"
 
+[node name="ButtonReiniciar" type="Button" parent="UI" unique_id=1226393630]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 76.0
+offset_top = -134.0
+offset_right = 263.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "REINICIAR PARTIDA"
+
+[node name="ButtonMenu" type="Button" parent="UI" unique_id=1645433454]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -134.0
+offset_right = -91.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+
 [node name="MusicaFondo" type="AudioStreamPlayer" parent="." unique_id=1594573600]
 stream = ExtResource("3_u8plk")
+volume_db = -9.766
 autoplay = true
