@@ -1,6 +1,5 @@
 extends Control
 
-
 # ============================================================
 # BOTONES DEL MENÚ PRINCIPAL
 # ============================================================
@@ -14,7 +13,6 @@ extends Control
 # Referencia al botón Salir.
 @onready var button_salir = $VBoxContainer/ButtonSalir
 
-
 # ============================================================
 # PANEL DE INFORMACIÓN
 # ============================================================
@@ -24,7 +22,6 @@ extends Control
 
 # Referencia al botón Volver.
 @onready var button_volver = $PanelInfo/ButtonVolver
-
 
 # ============================================================
 # INICIO DEL MENÚ
@@ -44,7 +41,6 @@ func _ready():
 	# Conectamos el botón Volver.
 	button_volver.pressed.connect(_on_button_volver_pressed)
 
-
 # ============================================================
 # BOTÓN JUGAR
 # ============================================================
@@ -53,7 +49,6 @@ func _on_button_jugar_pressed():
 
 	# Cambiamos del menú a la escena principal del juego.
 	get_tree().change_scene_to_file("res://Scene/Nivel1.tscn")
-
 
 # ============================================================
 # BOTÓN INFORMACIÓN
@@ -66,7 +61,6 @@ func _on_button_info_pressed():
 
 	# Ocultamos los botones del menú principal.
 	$VBoxContainer.visible = false
-
 
 # ============================================================
 # BOTÓN VOLVER
