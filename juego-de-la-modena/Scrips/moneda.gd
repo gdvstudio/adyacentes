@@ -1,23 +1,19 @@
 extends Area2D
 
-
 # ============================================================
 # SEÑALES
 # ============================================================
 
 # Esta señal avisa al Board que esta moneda fue presionada.
-#
 # "self" significa:
 # "La moneda que está enviando la señal soy yo".
 signal moneda_presionada(moneda)
-
 
 # ============================================================
 # VARIABLES
 # ============================================================
 
 # Número que identifica a esta moneda.
-#
 # Por ejemplo:
 # moneda 0
 # moneda 1
@@ -26,13 +22,10 @@ signal moneda_presionada(moneda)
 # moneda 11
 var indice: int
 
-
 # Guarda si esta moneda está actualmente seleccionada.
-#
 # false = no seleccionada
 # true  = seleccionada
 var seleccionada := false
-
 
 # ============================================================
 # DETECTAR CLIC
@@ -50,7 +43,6 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			# Avisamos al Board que esta moneda fue presionada.
 			moneda_presionada.emit(self)
 
-
 # ============================================================
 # SELECCIONAR / DESELECCIONAR
 # ============================================================
@@ -65,7 +57,6 @@ func cambiar_seleccion():
 	# Si estaba:
 	# true → pasa a false
 	seleccionada = !seleccionada
-
 
 	# Si ahora está seleccionada...
 	if seleccionada:
