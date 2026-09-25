@@ -53,6 +53,11 @@ var moneda_scene = preload("res://Scene/Moneda.tscn")
 # Botón que confirma la jugada.
 @onready var button_confirmar = $"../UI/ButtonConfirmarmar"
 
+# Botón para reiniciar la partida.
+@onready var button_reiniciar = $"../UI/ButtonReiniciar"
+
+# Botón para volver al menú principal.
+@onready var button_menu = $"../UI/ButtonMenu"
 
 # ============================================================
 # INICIO DEL JUEGO
@@ -63,16 +68,20 @@ func _ready():
 	# Creamos las monedas.
 	crear_monedas()
 
-	# Actualizamos la información que aparece en pantalla.
+	# Actualizamos la información de la interfaz.
 	actualizar_interfaz()
 
-	# Mostramos un mensaje inicial.
+	# Mostramos el mensaje inicial.
 	label_mensaje.text = "Seleccioná una o dos monedas"
 
-	# Conectamos el botón con la función que confirma
-	# la jugada del jugador.
+	# Conectamos el botón Confirmar.
 	button_confirmar.pressed.connect(_on_button_confirmar_pressed)
 
+	# Conectamos el botón Reiniciar.
+	button_reiniciar.pressed.connect(_on_button_reiniciar_pressed)
+
+	# Conectamos el botón Menú.
+	button_menu.pressed.connect(_on_button_menu_pressed)
 
 # ============================================================
 # CREAR LAS MONEDAS
@@ -168,9 +177,7 @@ func _on_moneda_presionada(moneda):
 
 		# Informamos al jugador.
 		label_mensaje.text = "Seleccionaste una moneda"
-
 		return
-
 
 	# --------------------------------------------------------
 	# CASO 4:
@@ -178,7 +185,6 @@ func _on_moneda_presionada(moneda):
 	# --------------------------------------------------------
 
 	var primera_moneda = monedas_seleccionadas[0]
-
 
 	# Comprobamos si la nueva moneda está tocando
 	# a la primera moneda.
@@ -198,7 +204,6 @@ func _on_moneda_presionada(moneda):
 		# Si no son adyacentes, no permitimos seleccionarla.
 		label_mensaje.text = "Las monedas deben estar juntas"
 
-
 # ============================================================
 # COMPROBAR ADYACENCIA
 # ============================================================
@@ -217,7 +222,6 @@ func son_adyacentes(moneda_a, moneda_b) -> bool:
 	# Si la distancia es menor o igual al límite,
 	# consideramos que las monedas están tocándose.
 	return distancia <= distancia_adyacente
-
 
 # ============================================================
 # CONFIRMAR JUGADA
@@ -274,18 +278,36 @@ func cambiar_turno():
 		# De lo contrario, vuelve a jugar el Jugador 1.
 		jugador_actual = 1
 
-
 func ganador() -> bool:
 
+	# Comprobamos si ya no quedan monedas.
 	if cantidad_monedas == 0:
 
-		label_ganador.text = "Ganó el jugador: " + str(jugador_actual)
+		# Mostramos un mensaje grande indicando
+		# quién ganó la partida.
+		label_ganador.text = "🏆 ¡GANÓ EL JUGADOR " + str(jugador_actual) + "! 🏆"
 
-		label_mensaje.text = "¡Fin de la partida! Presione una tecla para salir."
+		# Mostramos el mensaje de final de partida.
+		label_mensaje.text = "¡Fin de la partida!"
 
+		# Desactivamos el botón Confirmar porque
+		# la partida ya terminó.
 		button_confirmar.disabled = true
+
+		# Mostramos el botón para reiniciar.
+		button_reiniciar.visible = true
+
+		# Mostramos el botón para volver al menú.
+		button_menu.visible = true
+
+		# Mostramos el mensaje del ganador.
+		label_ganador.visible = true
+
+		# Indicamos que la partida terminó.
 		return true
 
+	# Si todavía quedan monedas,
+	# no hay ganador.
 	return false
 	
 # ============================================================
@@ -298,9 +320,23 @@ func actualizar_interfaz():
 
 	# Mostramos cuántas monedas quedan.
 	label_monedas.text = "Monedas: " + str(cantidad_monedas)
-	
-#Esta funcion permite salir del juego despues de haber ganado
-func _input(event):
-	if cantidad_monedas == 0:
-		if event is InputEventKey and event.pressed:
-			get_tree().quit()
+
+# ============================================================
+# REINICIAR PARTIDA
+# ============================================================
+
+func _on_button_reiniciar_pressed():
+
+	# Volvemos a cargar la escena actual.
+	# Esto hace que el juego empiece nuevamente
+	# desde cero.
+	get_tree().reload_current_scene()
+
+# ============================================================
+# VOLVER AL MENÚ
+# ============================================================
+
+func _on_button_menu_pressed():
+	# Cambiamos de la escena del juego
+	# a la escena del menú principal.
+	get_tree().change_scene_to_file("res://Scene/Menu.tscn")
