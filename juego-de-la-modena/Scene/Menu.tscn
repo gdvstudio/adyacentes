@@ -100,4 +100,5 @@ text = "VOLVER"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2145543359]
 stream = ExtResource("3_ldxh0")
+volume_db = -9.766
 autoplay = true
