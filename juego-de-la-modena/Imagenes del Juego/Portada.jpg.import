@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5lpjgm4i64lp"
-path="res://.godot/imported/index.apple-touch-icon.png-7440d596e39b4118f8629b99f235001c.ctex"
+uid="uid://dm43vbuq23xgq"
+path="res://.godot/imported/Portada.jpg-402615cd86667ad761543cdbca285163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://JuegoTerminado/index.apple-touch-icon.png"
-dest_files=["res://.godot/imported/index.apple-touch-icon.png-7440d596e39b4118f8629b99f235001c.ctex"]
+source_file="res://Imagenes del Juego/Portada.jpg"
+dest_files=["res://.godot/imported/Portada.jpg-402615cd86667ad761543cdbca285163.ctex"]
 
 [params]
 
